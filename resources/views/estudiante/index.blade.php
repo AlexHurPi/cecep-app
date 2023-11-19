@@ -40,15 +40,19 @@
     <tbody>
         @foreach ($estudiantes as $estudiante)
         <tr>
-            <th scope="row">{{ $category->id }}</th>
-            <td>{{ $category->name }}</td>
-            <td>{{ $category->description }}</td>
+            <th scope="row">{{ $estudiante->id }}</th>
+            <td>{{ $estudiante->nombre }}</td>
+            <td>{{ $estudiante->apellido }}</td>
+            <td>{{ $estudiante->cedula }}</td>
+            <td>{{ $estudiante->email }}</td>
+            <td>{{ $estudiante->telefono }}</td>
+            <td>{{ $estudiante->carreraid }}</td>            
             <td> 
-              <a href="{{ route('categories.edit', ['category' => $category->id]) }}"
+              <a href="{{ route('estudiantes.edit', ['estudiante' => $estudiante->id]) }}"
                 class="btn btn-info">
                 Edit</a>
               <form
-                  action="{{ route('categories.destroy', ['category' => $category->id]) }}"
+                  action="{{ route('estudiantes.destroy', ['estudiante' => $estudiante->id]) }}"
                   method='POST' style="display: inline-block">
                   @method('delete')
                   @csrf
