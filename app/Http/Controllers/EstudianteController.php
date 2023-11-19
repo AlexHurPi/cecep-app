@@ -15,7 +15,8 @@ class EstudianteController extends Controller
     public function index()
     {
         $estudiantes =DB::table('estudiantes')       
-       ->select('estudiantes.*')
+       ->join('carreras', 'estudiantes.carreraid', '=', 'carreras.id')       
+        ->select('estudiantes.*', 'carreras.nombre')
        ->get();
        return view("estudiante.index",['estudiantes' => $estudiantes]);
     }
@@ -27,7 +28,7 @@ class EstudianteController extends Controller
     {
         $estudiantes = DB::table('estudiantes')        
         ->get();
-        return view('estudiante.new',['estudiantes'=>$estudiantes]);
+        return view('estudiantes.new',['estudiantes'=>$estudiantes]);
     }
 
     /**
