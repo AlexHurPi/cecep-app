@@ -33,39 +33,39 @@
         <div id="idHelp" class="form-text">Id del estudiante</div>
       </div>    
         
-    <div class="mb-2">
+    <div class="mb-3">
         <label for="nombre" class="form label">Nombre</label>
         <input type="text" class="form-input rounded focus:outline-none w-full" 
         id="nombre" aria-describedby="nombreHelp"
-        name="nombre" placeholder="nombres del estudiante.">
+        name="nombre" value="{{$estudiante->Nombre}}">
       </div>
 
-      <div class="mb-2">
+      <div class="mb-3">
         <label for="apellido" class="form label">Apellido</label>
         <input type="text" class="form-input rounded focus:outline-none w-full" 
         id="apellido" aria-describedby="apellidoHelp"
-        name="apellido" placeholder="apellidos del estudiante.">
+        name="apellido" value="{{$estudiante->apellido}}">
       </div>
 
-      <div class="mb-2">
+      <div class="mb-3">
         <label for="cedula" class="form label">Cedula</label>
         <input type="text" class="form-input rounded focus:outline-none w-full" 
         id="cedula" aria-describedby="cedulaHelp"
-        name="cedula" placeholder="cedula del estudiante.">
+        name="cedula" value="{{$estudiante->cedula}}">
       </div>
 
       <div class="mb-2">
         <label for="email" class="form label">E-mail</label>
         <input type="text" class="form-input rounded focus:outline-none w-full" 
         id="email" aria-describedby="emailHelp"
-        name="email" placeholder="E-mail del estudiante.">
+        name="email" value="{{$estudiante->email}}">
       </div>
 
       <div class="mb-2">
         <label for="telefono" class="form label">Telefono</label>
         <input type="text" class="form-input rounded focus:outline-none w-full" 
         id="telefono" aria-describedby="telefonoHelp"
-        name="telefono" placeholder="telefono del estudiante.">
+        name="telefono" value="{{$estudiante->telefono}}">
       </div>
 
       <label for="carrera">Carrera:</label>
