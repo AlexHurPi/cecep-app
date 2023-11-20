@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EstudianteController;
+use App\Http\Controllers\CarreraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,11 @@ Route::middleware('auth')->group(function () {
     Route::put('/estudiantes/{estudiante}',[EstudianteController::class, 'update'])->name('estudiantes.update');
     Route::get('/estudiantes/{estudiante}/edit',[EstudianteController::class, 'edit'])->name('estudiantes.edit');
 
-require __DIR__.'/auth.php';
+    Route::get('/carreras',[CarreraController::class, 'index'])->name('carreras.index');
+    Route::post('/carreras',[CarreraController::class, 'store'])->name('carreras.store');
+    Route::get('/carreras/create',[CarreraController::class, 'create'])->name('carreras.create');
+    Route::delete('/carreras/{carrera}',[CarreraController::class, 'destroy'])->name('carreras.destroy');
+    Route::put('/carreras/{carrera}',[CarreraController::class, 'update'])->name('carreras.update');
+    Route::get('/carreras/{carrera}/edit',[CarreraController::class, 'edit'])->name('carreras.edit');
+
+    require __DIR__.'/auth.php';

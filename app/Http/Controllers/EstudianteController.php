@@ -16,7 +16,7 @@ class EstudianteController extends Controller
     {
         $estudiantes =DB::table('estudiantes')       
        ->join('carreras', 'estudiantes.carreraid', '=', 'carreras.id')       
-        ->select('estudiantes.*', 'carreras.nombre')
+        ->select('estudiantes.*', 'carreras.nombre as nombre_carrera')//se coloca un alias para solucionar el problema de que en el campo de nombre del estudiante se veia el nombre de la carrera
        ->get();
        return view("estudiante.index",['estudiantes' => $estudiantes]);
     }

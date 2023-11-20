@@ -46,7 +46,7 @@
             <td>{{ $estudiante->cedula }}</td>
             <td>{{ $estudiante->email }}</td>
             <td>{{ $estudiante->telefono }}</td>
-            <td>{{ $estudiante->nombre }}</td>            
+            <td>{{ $estudiante->nombre_carrera }}</td>            
             <td> 
               <a href="{{ route('estudiantes.edit', ['estudiante' => $estudiante->id]) }}"
                 class="btn btn-info">
