@@ -67,9 +67,10 @@ class EstudianteController extends Controller
     public function edit(string $id)
     {
         $estudiante = Estudiante::find($id);
-        $estudiantes = DB::table('estudiantes')        
+        $carreras = DB::table('carreras')   
+         ->orderBy('nombre')    
         ->get();
-        return view('estudiante.edit',['estudiante'=>$estudiante]);
+        return view('estudiante.edit',['estudiante'=>$estudiante, 'carreras'=> $carreras ]);
     }
 
     /**

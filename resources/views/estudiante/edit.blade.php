@@ -71,8 +71,8 @@
       id="carreraid" name="carreraid" required>
         <option selected disabled value="">Elija una carrera...</option>
         @foreach ($carreras as $carrera)
-        @if ($carreras->id ==$estudiantes->carreraid)
-        <option value="{{$carrera->id}}">{{$carrera->nombre}}</option>
+        @if ($carrera->id ==$estudiante->carreraid)
+        <option selected value="{{$carrera->id}}">{{$carrera->nombre}}</option>
         @else
        <option value="{{$carrera->id}}">{{$carrera->nombre}}</option>
           
