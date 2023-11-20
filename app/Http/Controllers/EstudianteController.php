@@ -48,7 +48,7 @@ class EstudianteController extends Controller
 
         $estudiantes = DB::table('estudiantes')       
         ->join('carreras', 'estudiantes.carreraid', '=', 'carreras.id')
-        ->select('estudiantes.*', "carreras.nombre") 
+        ->select('estudiantes.*', "carreras.nombre as nombre_carrera") 
         ->get();
         return view('estudiante.index',['estudiantes'=>$estudiantes]);
     }
@@ -84,11 +84,12 @@ class EstudianteController extends Controller
         $estudiante ->cedula =$request->cedula;
         $estudiante ->email =$request->email;
         $estudiante ->telefono =$request->telefono;
-        $estudiante ->carrera =$request->carrera;        
+        $estudiante ->carreraid =$request->carreraid;        
         $estudiante->save();
  
-        $estudiantes = DB::table('estudiantes')       
-        ->select('estudiantes.*') 
+        $estudiantes = DB::table('estudiantes') 
+        ->join('carreras', 'estudiantes.id', '=', 'carreras.id')      
+        ->select('estudiantes.*', 'carreras.nombre as nombre_carrera') 
         ->get();
         return view('estudiante.index',['estudiantes'=>$estudiantes]);
     }
@@ -101,8 +102,9 @@ class EstudianteController extends Controller
         $estudiante = Estudiante::find($id);        
         $estudiante->delete();        
         
-        $estudiantes = DB::table('estudiantes')        
-        ->select('estudiantes.*')
+        $estudiantes = DB::table('estudiantes')  
+        ->join('carreras', 'estudiantes.id', '=', 'carreras.id')       
+        ->select('estudiantes.*', 'carreras.nombre as nombre_carrera')
         ->get();
         return view('estudiante.index',['estudiantes'=>$estudiantes]);
     }
