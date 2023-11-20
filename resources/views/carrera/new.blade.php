@@ -30,54 +30,24 @@
         <input type="text" class="form-input rounded focus:outline-none w-full bg-gray-100" 
         id="id" aria-describedby="idlHelp" name="id" disabled>
     </div>    
-        <div id="idHelp" class="form-text">Id del estudiante</div>
+        <div id="idHelp" class="form-text">Id de la carrera</div>
     <div class="mb-2">
         <label for="nombre" class="form label">Nombre</label>
         <input type="text" class="form-input rounded focus:outline-none w-full" 
         id="nombre" aria-describedby="nombreHelp"
-        name="nombre" placeholder="nombres del estudiante.">
+        name="nombre" placeholder="nombre  de la carrera.">
       </div>
 
       <div class="mb-2">
-        <label for="apellido" class="form label">Apellido</label>
+        <label for="apellido" class="form label">Observacion</label>
         <input type="text" class="form-input rounded focus:outline-none w-full" 
-        id="apellido" aria-describedby="apellidoHelp"
-        name="apellido" placeholder="apellidos del estudiante.">
+        id="observacion" aria-describedby="observacionHelp"
+        name="observacion" placeholder="observaciones.">
       </div>
 
-      <div class="mb-2">
-        <label for="cedula" class="form label">Cedula</label>
-        <input type="text" class="form-input rounded focus:outline-none w-full" 
-        id="cedula" aria-describedby="cedulaHelp"
-        name="cedula" placeholder="cedula del estudiante.">
-      </div>
-
-      <div class="mb-2">
-        <label for="email" class="form label">E-mail</label>
-        <input type="text" class="form-input rounded focus:outline-none w-full" 
-        id="email" aria-describedby="emailHelp"
-        name="email" placeholder="E-mail del estudiante.">
-      </div>
-
-      <div class="mb-2">
-        <label for="telefono" class="form label">Telefono</label>
-        <input type="text" class="form-input rounded focus:outline-none w-full" 
-        id="telefono" aria-describedby="telefonoHelp"
-        name="telefono" placeholder="telefono del estudiante.">
-      </div>
-
-      <label for="carrera">Carrera:</label>
-      <select class="form-select w-60 rounded-md focus:outline-none" 
-      id="carreraid" name="carreraid" required>
-        <option selected disabled value="">Elija una carrera...</option>
-        @foreach ($carreras as $carrera)       
-        <option value="{{$carrera->id}}">{{$carrera->nombre}}</option>
-        
-      @endforeach
-      </select>
         <div class="mt-3">
         <button type="submit" class="btn btn-info" >Guardar</button>
-          <a href="{{route('estudiantes.index')}}" class="btn btn-warning">Cancelar</a>        
+          <a href="{{route('carreras.index')}}" class="btn btn-warning">Cancelar</a>        
       </div>      
     </form>
   
