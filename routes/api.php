@@ -22,4 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/estudiantes',[EstudianteController::class, 'index'])->name('estudiantes');
+
+Route::post('/carreras',[CarreraController::class, 'store'])->name('carreras.store');
 Route::get('/carreras',[CarreraController::class, 'index'])->name('carreras');
+Route::get('/carreras/{carrera}',[CarreraController::class, 'show'])->name('carreras.show');
