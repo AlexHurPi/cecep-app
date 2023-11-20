@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('cedula', 64)->unique();
             $table->string('email',128)->unique();
             $table->string('telefono',15);
-            $table->string('carreraid', 64);
+            $table->foreignId('carreraid')->constrained('carreras')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('estudiantes');
     }
 };

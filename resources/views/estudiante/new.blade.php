@@ -23,7 +23,7 @@
             
               <div class="container mb-3">    
 
-    <form method="POST" action="{{route('estudiantes.store')}}">
+    <form method="POST" action="{{ route('estudiantes.store') }}">
       @csrf
       <div class="mb-2">
         <label for="id" class="form label">Id</label>
@@ -68,7 +68,7 @@
 
       <label for="carreramunicipality">Carrera:</label>
       <select class="form-select w-60 rounded-md focus:outline-none" 
-      id="carrera" name="carrera" required>
+      id="carreraid" name="carreraid" required>
         <option selected disabled value="">Elija una carrera...</option>
         @foreach ($carreras as $carrera)
         <option value="{{$carrera->id}}">{{$carrera->nombre}}</option>

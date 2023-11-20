@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/estudiantes',[EstudianteController::class, 'store'])->name('estudiantes.store');
     Route::get('/estudiantes/create',[EstudianteController::class, 'create'])->name('estudiantes.create');
     Route::delete('/estudiantes/{estudiante}',[EstudianteController::class, 'destroy'])->name('estudiantes.destroy');
-    //Route::put('/estudiantes/{estudiante}',[EstudianteController::class, 'update'])->name('estudiantes.update');
-    //Route::get('/estudiantes/{estudiante}/edit',[EstudianteController::class, 'edit'])->name('estudiantes.edit');
+    Route::put('/estudiantes/{estudiante}',[EstudianteController::class, 'update'])->name('estudiantes.update');
+    Route::get('/estudiantes/{estudiante}/edit',[EstudianteController::class, 'edit'])->name('estudiantes.edit');
 
 require __DIR__.'/auth.php';

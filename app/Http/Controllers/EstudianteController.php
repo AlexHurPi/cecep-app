@@ -26,9 +26,10 @@ class EstudianteController extends Controller
      */
     public function create()
     {
-        $estudiantes = DB::table('estudiantes')        
+        $carreras = DB::table('carreras')    
+        ->orderBy("nombre")    
         ->get();
-        return view('estudiantes.new',['estudiantes'=>$estudiantes]);
+        return view('estudiante.new',['carreras'=>$carreras]);
     }
 
     /**
@@ -42,11 +43,12 @@ class EstudianteController extends Controller
         $estudiante ->cedula =$request->cedula;
         $estudiante ->email =$request->email;
         $estudiante ->telefono =$request->telefono;
-        $estudiante ->carrara =$request->carrera;        
+        $estudiante ->carreraid =$request->carreraid;        
         $estudiante->save();
 
         $estudiantes = DB::table('estudiantes')       
-        ->select('estudiantes.*') 
+        ->join('carreras', 'estudiantes.carreraid', '=', 'carreras.id')
+        ->select('estudiantes.*', "carreras.nombre") 
         ->get();
         return view('estudiante.index',['estudiantes'=>$estudiantes]);
     }
@@ -67,7 +69,7 @@ class EstudianteController extends Controller
         $estudiante = Estudiante::find($id);
         $estudiantes = DB::table('estudiantes')        
         ->get();
-        return view('estudiantes.edit',['estudiante'=>$estudiante]);
+        return view('estudiante.edit',['estudiante'=>$estudiante]);
     }
 
     /**
@@ -81,7 +83,7 @@ class EstudianteController extends Controller
         $estudiante ->cedula =$request->cedula;
         $estudiante ->email =$request->email;
         $estudiante ->telefono =$request->telefono;
-        $estudiante ->carrara =$request->carrera;        
+        $estudiante ->carrera =$request->carrera;        
         $estudiante->save();
  
         $estudiantes = DB::table('estudiantes')       
@@ -101,6 +103,6 @@ class EstudianteController extends Controller
         $estudiantes = DB::table('estudiantes')        
         ->select('estudiantes.*')
         ->get();
-        return view('estudiantes.index',['estudiantes'=>$estudiantes]);
+        return view('estudiante.index',['estudiantes'=>$estudiantes]);
     }
 }
