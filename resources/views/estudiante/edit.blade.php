@@ -25,12 +25,14 @@
     <form method="POST" action="{{ route('estudiantes.update', ['estudiante'=>$estudiante->id]) }}">
       @method('put')
         @csrf
-      <div class="mb-2">
+      <div class="mb-3">
         <label for="id" class="form label">Id</label>
         <input type="text" class="form-input rounded focus:outline-none w-full bg-gray-100" 
-        id="id" aria-describedby="idlHelp" name="id" disabled>
-    </div>    
+        id="id" aria-describedby="idlHelp" name="id" disabled="disabled"
+        value="{{$estudiante->id}}">
         <div id="idHelp" class="form-text">Id del estudiante</div>
+      </div>    
+        
     <div class="mb-2">
         <label for="nombre" class="form label">Nombre</label>
         <input type="text" class="form-input rounded focus:outline-none w-full" 
